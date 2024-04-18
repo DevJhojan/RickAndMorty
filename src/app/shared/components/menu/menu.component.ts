@@ -19,6 +19,7 @@ export class MenuComponent {
     {name: 'Rick & Morty', url: '/home'},
     {name: 'Characters', url:'/home/Characters'},
     {name: 'Episodes', url:'/home/Episodes'},
+    {name: 'Locations', url:'/home/Locations'},
   ]
   toggleMenu() {
     this.showMenu = !this.showMenu;

@@ -13,8 +13,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class CharactersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   enablePaginator!: boolean;
-  allCharacters: IResult[] = [];
-  addingCharacters: IResult[] = [];
+  allCharacters: IResult[] ;
+  addingCharacters: IResult[];
   searchTerm: String = '';
   length = 0;
   pageSize = 10;
@@ -31,6 +31,9 @@ export class CharactersComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.pageEvent = new PageEvent();
+    this.allCharacters = [];
+    this.addingCharacters = [];
+    this.dataSource = new MatTableDataSource(this.allCharacters);
     this.loadAllCharacters();
   }
   loadAllCharacters() {
@@ -53,9 +56,6 @@ export class CharactersComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.allCharacters = [...this.allCharacters];
-    this.applyFilter();
-    this.handlePageEvent(this.paginator);
   }
 
   ngAfterViewInit() {
