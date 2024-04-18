@@ -1,0 +1,32 @@
+div{
+  width: auto;
+  height: 99vh;
+  margin-left: -3rem;
+  background-image: url('../../../assets/Img/RickAndMorty.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.title{
+  width: 18rem;
+  height: 6rem;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  border-radius: 4rem;
+}
+.character-principal{
+  margin: 1rem;
+  width: 20%;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.character-principal:hover{
+  width: 25%;
+}
+.principal-2{
+  margin: 1rem;
+  bottom: 0;
+  right: 0;
+}

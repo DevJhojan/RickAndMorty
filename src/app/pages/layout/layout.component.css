@@ -1,0 +1,21 @@
+.wi-side{
+  width: 18%;
+}
+.bg-black-super{
+   width: auto;
+  height: 99vh;
+  margin-left: -1rem;
+  background-image: url('../../../assets/Img/RickAndMorty.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.btn-menu{
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+}
+@media (max-width: 800px){
+  .wi-side{
+    width: 100%;
+  }
+}

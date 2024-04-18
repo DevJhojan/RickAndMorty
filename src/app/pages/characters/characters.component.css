@@ -1,0 +1,16 @@
+.card{
+  width: 10rem;
+  height: 14rem;
+  background-color: rgb(14, 13, 13);
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  justify-content: center;
+}
+.card:hover{
+  width: 12rem;
+}
+img{
+  border-radius: 1rem;
+}

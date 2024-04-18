@@ -1,0 +1,24 @@
+<div mat-dialog-content class="content ">
+  <mat-card
+    *ngFor="let character of characters"
+    [ngStyle]="{'background-color': character.status.toString() === 'Alive' ? 'black' : 'red'}"
+    class="card"
+  >
+    <mat-card-header class="text-justify">
+      <mat-card-title class="text-sm">{{ character.name }}</mat-card-title>
+      <mat-card-subtitle class="text-xs">{{ character.origin.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      matCardImage
+      [src]="character.image"
+      [alt]="character.name"
+      class="w-full border-circle"
+    />
+    <mat-card-content class="w-full text-justify text-xs">
+      {{ character.species }} | {{ character.status }}
+    </mat-card-content>
+    <mat-card-footer class=" bottom-0">
+      {{ character.created | date : "DD/MM/YYYY" }}
+    </mat-card-footer>
+  </mat-card>
+</div>

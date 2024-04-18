@@ -1,0 +1,39 @@
+<mat-form-field class="fixed top-0 ml-8 w-8 ">
+  <mat-label>Filter</mat-label>
+  <input matInput [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" placeholder="search Character" #input>
+</mat-form-field>
+<main *ngIf="dataSource && dataSource.data" class="flex flex-row flex-wrap w-full ml-5 mt-8">
+  <div
+    *ngFor="
+      let character of this.dataSource.data
+    "
+    class="flex flex-column card  ml-1 p-3"
+    (click)="allInfo(character)"
+  >
+    <img
+      [src]="character.image"
+      [alt]="character.name"
+      class="w-full border-circle"
+    />
+    <div class="w-full flex flex-column text-center">
+      <mat-card-title>{{ character.name }}</mat-card-title>
+      <span>{{character.species}}</span>
+      <span>{{ character.gender}}</span>
+    </div>
+  </div>
+  <mat-paginator
+    #paginator
+    *ngIf="enablePaginator"
+    class="demo-paginator w-11 mt-5"
+    (page)="handlePageEvent($event)"
+    [length]="dataSource.data.length"
+    [pageSize]="pageSize"
+    [disabled]="disabled"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+    [hidePageSize]="hidePageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</main>

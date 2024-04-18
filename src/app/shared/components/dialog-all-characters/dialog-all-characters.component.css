@@ -1,0 +1,21 @@
+.live{
+  background-color: rgb(255, 230, 0);
+}
+.dead{
+  background-color: rgb(99, 0, 0);
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2rem;
+  overflow: hidden scroll;
+}
+.card{
+  width: 30%;
+  height: 25rem;
+  padding: 1rem;
+  margin: 0.3rem;
+
+}
