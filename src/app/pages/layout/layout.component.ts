@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
         </button>
         <shared-menu (showMenu)="toggleMenu()"></shared-menu>
       </mat-sidenav>
-      <mat-sidenav-content class="container">
+      <mat-sidenav-content class="container bg-black-super">
         <div class="ml-4">
           <router-outlet></router-outlet>
         </div>
