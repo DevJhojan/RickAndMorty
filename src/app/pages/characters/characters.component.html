@@ -1,26 +1,32 @@
-<mat-form-field class="fixed top-0 mt-1 ml-8 w-8 ">
+<mat-form-field class="fixed top-0 mt-1 ml-8 w-8">
   <mat-label>Filter</mat-label>
-  <input matInput [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" placeholder="search Character" #input>
+  <input
+    matInput
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="applyFilter()"
+    placeholder="search Character"
+    #input
+  />
 </mat-form-field>
-<main *ngIf="dataSource && dataSource.data" class="flex flex-row flex-wrap w-full ml-5 mt-8">
-  <div
-    *ngFor="
-      let character of this.dataSource.data
-    "
-    class="flex flex-column card  ml-1 p-3"
-    (click)="allInfo(character)"
-  >
-    <img
-      [src]="character.image"
-      [alt]="character.name"
-      class="w-full border-circle"
-    />
-    <div class="w-full flex flex-column text-center">
-      <mat-card-title>{{ character.name }}</mat-card-title>
-      <span>{{character.species}}</span>
-      <span>{{ character.gender}}</span>
+<main>
+  <ng-container *ngFor="let character of this.dataSource.data">
+    <div
+      *ngIf="dataSource && dataSource.data"
+      class="flex flex-column card ml-1 p-3"
+      (click)="allInfo(character)"
+    >
+      <img
+        [src]="character.image"
+        [alt]="character.name"
+        class="w-full "
+      />
+      <div class="w-full flex flex-column text-center">
+        <mat-card-title>{{ character.name }}</mat-card-title>
+        <span>{{ character.species }}</span>
+        <span>{{ character.gender }}</span>
+      </div>
     </div>
-  </div>
+  </ng-container>
   <mat-paginator
     #paginator
     *ngIf="enablePaginator"
