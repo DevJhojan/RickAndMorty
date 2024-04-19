@@ -1,9 +1,9 @@
-<mat-form-field class="w-11 mt-1">
+<mat-form-field class="w-10 mt-1 ml-5 mt-7">
   <mat-label>Filter</mat-label>
   <input matInput (keyup.enter)="applyFilter($event)" placeholder="Name Episode" #input>
 </mat-form-field>
-<div class="w-11">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full">
+<main >
+  <table mat-table [dataSource]="dataSource" class="w-11 p-1">
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
@@ -27,8 +27,8 @@
     <ng-container matColumnDef="characters">
       <th mat-header-cell *matHeaderCellDef> View </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" (click)="allCharacter(element.characters)">
-          Characters
+        <button mat-stroked-button color="warn" (click)="allCharacter(element.characters)" >
+          <mat-icon>visibility</mat-icon>
         </button>
       </td>
     </ng-container>
@@ -45,7 +45,6 @@
     #paginator
     class="demo-paginator w-full mt-5"
     (page)="handlePageEvent($event)"
-    [length]="dataSource.length"
     [pageSize]="pageSize"
     [disabled]="disabled"
     [showFirstLastButtons]="showFirstLastButtons"
@@ -55,4 +54,4 @@
     aria-label="Select page"
   >
   </mat-paginator>
-</div>
+</main>
