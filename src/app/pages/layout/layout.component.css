@@ -2,7 +2,7 @@
   width: 18%;
 }
 .bg-black-super{
-   width: auto;
+  width: auto;
   height: 99vh;
   margin-left: -1rem;
   background-image: url('../../../assets/Img/RickAndMorty.gif');
@@ -14,8 +14,16 @@
   top: 0.5rem;
   left: 1rem;
 }
-@media (max-width: 800px){
+@media (max-width: 950px){
   .wi-side{
     width: 100%;
+  }
+
+  .bg-black-super{
+    width: 100%;
+    background-image: url('../../../assets/Img/RickAndMorty2.gif');
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
   }
 }

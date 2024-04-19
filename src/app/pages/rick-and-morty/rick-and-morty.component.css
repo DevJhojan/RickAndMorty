@@ -1,13 +1,12 @@
-div{
+div {
   width: auto;
   height: 99vh;
   margin-left: -3rem;
-  background-image: url('../../../assets/Img/RickAndMorty.gif');
   background-size: cover;
   background-repeat: no-repeat;
-  position:relative;
+  position: relative;
 }
-.title{
+.title {
   width: 18rem;
   height: 6rem;
   position: absolute;
@@ -15,7 +14,7 @@ div{
   right: 2%;
   border-radius: 4rem;
 }
-.character-principal{
+.character-principal {
   margin: 3rem;
   width: 20%;
   border-radius: 50%;
@@ -23,18 +22,26 @@ div{
   transition: all 0.5s;
   cursor: pointer;
 }
-.character-principal:hover{
+.character-principal:hover {
   width: 25%;
 }
-.principal-2{
+.principal-2 {
   margin: 3rem;
   bottom: 0;
   right: 0;
 }
 @media (max-width: 800px) {
-  .title{
+  .title {
     top: 50%;
     left: 50%;
     transform: translate(-50%);
+  }
+  div {
+    width: auto;
+    height: 99vh;
+    margin-left: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
   }
 }
