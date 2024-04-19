@@ -4,9 +4,9 @@
     [ngStyle]="{'background-color': character.status.toString() === 'Alive' ? 'black' : 'red'}"
     class="card"
   >
-    <mat-card-header class="text-justify">
-      <mat-card-title class="text-sm">{{ character.name }}</mat-card-title>
-      <mat-card-subtitle class="text-xs">{{ character.origin.name }}</mat-card-subtitle>
+    <mat-card-header >
+      <mat-card-title >{{ character.name }}</mat-card-title>
+      <mat-card-subtitle >{{ character.origin.name }}</mat-card-subtitle>
     </mat-card-header>
     <img
       matCardImage
@@ -14,7 +14,7 @@
       [alt]="character.name"
       class="w-full border-circle"
     />
-    <mat-card-content class="w-full text-justify text-xs">
+    <mat-card-content >
       {{ character.species }} | {{ character.status }}
     </mat-card-content>
     <mat-card-footer class=" bottom-0">
