@@ -5,6 +5,7 @@ div{
   background-image: url('../../../assets/Img/RickAndMorty.gif');
   background-size: cover;
   background-repeat: no-repeat;
+  position:relative;
 }
 .title{
   width: 18rem;
@@ -15,7 +16,7 @@ div{
   border-radius: 4rem;
 }
 .character-principal{
-  margin: 1rem;
+  margin: 3rem;
   width: 20%;
   border-radius: 50%;
   position: absolute;
@@ -26,7 +27,14 @@ div{
   width: 25%;
 }
 .principal-2{
-  margin: 1rem;
+  margin: 3rem;
   bottom: 0;
   right: 0;
+}
+@media (max-width: 800px) {
+  .title{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
 }

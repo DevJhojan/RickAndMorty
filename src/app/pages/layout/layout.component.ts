@@ -33,7 +33,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent {
-  showMenu = true;
+  showMenu = false;
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }
