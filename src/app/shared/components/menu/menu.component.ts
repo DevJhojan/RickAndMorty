@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface ItemsMenu{
@@ -11,7 +11,8 @@ interface ItemsMenu{
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  showMenu = true;
+
+  @Output() showMenu:EventEmitter<boolean> = new EventEmitter();
   showFiller = false;
   constructor(private router: Router){
   }
@@ -21,11 +22,9 @@ export class MenuComponent {
     {name: 'Episodes', url:'/home/Episodes'},
     {name: 'Locations', url:'/home/Locations'},
   ]
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
-  }
 
   navigate(url: string){
-   this.router.navigate([url]);
+    this.router.navigate([url]);
+    this.showMenu.emit();
   }
 }

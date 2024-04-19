@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
         >
           <mat-icon>menu</mat-icon>
         </button>
-        <shared-menu></shared-menu>
+        <shared-menu (showMenu)="toggleMenu()"></shared-menu>
       </mat-sidenav>
       <mat-sidenav-content class=" overflow-hidden bg-black-super">
         <div class="ml-4">
