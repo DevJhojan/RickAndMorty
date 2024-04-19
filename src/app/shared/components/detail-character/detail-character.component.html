@@ -1,7 +1,7 @@
-<h1 mat-dialog-title class="text-center w-full">{{ data.name }}</h1>
-<div mat-dialog-content class="w-full flex flex-row overflow-hidden">
-  <img [src]="data.image" [alt]="data.name" class="w-6 h-20rem border-round-2xl " />
-  <div class="flex flex-column">
+<h1 mat-dialog-title> {{ data.name }}</h1>
+<main mat-dialog-content >
+  <img [src]="data.image" [alt]="data.name" />
+  <div>
     <ul class="list-none w-full info">
       <li>Status: {{ data.status }}</li>
       <li>Specie: {{ data.species }}</li>
@@ -9,9 +9,13 @@
       <li>Origin: {{ data.origin.name }}</li>
       <li>Location:{{ data.location.name }}</li>
       <li>Created: {{ data.created | date:'dd/MM/yyyy'}}</li>
+    </ul>
+  </div>
+  <div class="episodes">
+    <ul>
       <li *ngFor="let episode of episodes" >
         <a>Episode {{episode}}</a>
       </li>
     </ul>
   </div>
-</div>
+</main>
