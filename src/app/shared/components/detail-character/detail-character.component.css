@@ -1,18 +1,19 @@
 .info {
   overflow: hidden scroll;
   scrollbar-width: none;
+  text-align: center;
+  width: 100%;
 }
 .episodes {
   width: 15rem;
-  height: 50vh;
-  margin-left: 3%;
+  height: 35rem;
+  margin-left: 5%;
   padding: 2rem;
+  padding-top: 22rem;
+  padding-bottom: 30rem;
   position: absolute;
   top: 3%;
-  right: 5%;
-  transition: translate(-5%);
-  overflow-y: scroll;
-  scrollbar-width: thin;
+  right: 2%;
 }
 
 h1 {
@@ -29,6 +30,7 @@ main {
   justify-content: center;
   border-radius: 2rem;
   position: relative;
+  scrollbar-width: none;
 }
 div{
   width: 65%;
@@ -36,14 +38,16 @@ div{
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  position: fixed;
+  top: 40%;
 }
 img {
   width: 17rem;
   height: 17rem;
   border-radius: 50%;
-  position: relative;
-  top: 15%;
-  left: -5%;
+  position: fixed;
+  top: 35%;
+  left: 15%;
 }
 li {
   list-style: none;
@@ -52,15 +56,16 @@ li {
 @media (max-width: 950px) {
   .episodes {
     width: 15rem;
-    height: 5rem;
     padding: 2rem;
+    padding-top: 25rem;
     position: relative;
-    overflow-y: hidden scroll;
-    scrollbar-width: thin;
+    text-align: center;
   }
   div{
     width: 100%;
     margin-left: -5%;
+    position: relative;
+    top: -2%;
   }
   img {
     width: 10rem;
@@ -68,12 +73,10 @@ li {
     border-radius: 50%;
     position: relative;
     top: 0.1rem;
+    left: -0.2rem;
   }
 
-  img {
-    width: 15rem;
-    height: 15rem;
-    border-radius: 50%;
-    position: relative;
+  li{
+    margin-left: -25%;
   }
 }
