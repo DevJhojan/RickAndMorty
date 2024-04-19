@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
         </button>
         <shared-menu (showMenu)="toggleMenu()"></shared-menu>
       </mat-sidenav>
-      <mat-sidenav-content class=" overflow-hidden bg-black-super">
+      <mat-sidenav-content class="container">
         <div class="ml-4">
           <router-outlet></router-outlet>
         </div>
@@ -33,7 +33,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent {
-  showMenu = true;
+  showMenu = false;
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }

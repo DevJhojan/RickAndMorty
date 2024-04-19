@@ -1,0 +1,7 @@
+main{
+  width: 95%;
+  margin-left: 1%;
+  overflow: hidden scroll;
+  scrollbar-width: none;
+}
+

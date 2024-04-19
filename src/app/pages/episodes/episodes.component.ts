@@ -44,8 +44,11 @@ export class EpisodesComponent {
     }
   }
   ngAfterViewInit() {
-    // Vincular el paginador con la fuente de datos
-    this.dataSource.paginator = this.paginator;
+    try{
+      this.dataSource.paginator = this.paginator;
+    }catch (e){
+      console.warn(`Error: ${e}`)
+    }
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
