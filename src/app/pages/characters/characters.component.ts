@@ -95,7 +95,7 @@ export class CharactersComponent implements OnInit {
   }
   allInfo(character: IResult): void {
     const dialogRef = this.dialog.open(DetailCharacterComponent, {
-      width: '60%',
+      width: '90%',
       data: character,
     });
     dialogRef.afterClosed().subscribe((result) => {
