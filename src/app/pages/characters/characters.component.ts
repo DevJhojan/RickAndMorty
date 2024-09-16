@@ -13,11 +13,12 @@ import { MatTableDataSource } from '@angular/material/table';
 export class CharactersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   enablePaginator!: boolean;
-  allCharacters: IResult[] ;
   addingCharacters: IResult[];
+  public allCharacters: IResult[];
+  public filteredCharacters: IResult[] = [];
+  public paginatedCharacter: IResult[] = [];
   searchTerm: String = '';
   length = 0;
-  pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
   hidePageSize = true;
@@ -26,6 +27,12 @@ export class CharactersComponent implements OnInit {
   disabled = false;
   pageEvent: PageEvent;
   dataSource: any;
+
+
+  public searchText: string = '';
+  public currentPage: number = 1; // Página inicial
+  public pageSize: number = 6; // Cantidad de Pokémon por página
+  public totalPages: number = 1;
   constructor(
     private sRAndMService: ServiceRickAndMortyService,
     public dialog: MatDialog
@@ -45,18 +52,17 @@ export class CharactersComponent implements OnInit {
             this.addingCharacters.push(character);
           });
           this.allCharacters = this.addingCharacters;
-          this.dataSource = new MatTableDataSource(this.allCharacters);
-          try {
-            this.updatePaginator();
-          } catch (e: any) {
-            console.warn('problem length');
-          }
-          this.enablePaginator = true;
+          this.allCharacters = Array.from(
+            new Map(
+              this.allCharacters.map((character) => [character.id, character])
+            ).values()
+          ).sort((a, b) => a.id - b.id);
+
+          this.filterCharacter()
         });
     }
   }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.paginator ? (this.dataSource.paginator = this.paginator) : '';
@@ -102,11 +108,43 @@ export class CharactersComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  updatePaginator() {
-    this.length = this.dataSource.data.length;
-    this.paginator.length = this.length;
-    this.paginator.pageSize = this.pageSize;
-    this.paginator.pageIndex = this.pageIndex;
-    this.handlePageEvent(this.paginator);
+
+  filterCharacter(): void {
+    if (this.searchText) {
+      const searchLower = this.searchText.toLowerCase();
+      this.filteredCharacters = this.allCharacters.filter((character) =>
+        character.name.toLowerCase().includes(searchLower)
+      );
+    } else {
+      this.filteredCharacters = [...this.allCharacters];
+    }
+
+    this.totalPages = Math.ceil(this.filteredCharacters.length / this.pageSize);
+    this.loadPage(this.currentPage);
+  }
+   loadPage(page: number): void {
+    this.currentPage = page;
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedCharacter = this.filteredCharacters.slice(startIndex, endIndex);
+  }
+   previousPage(): void {
+    if (this.currentPage > 1) {
+      this.loadPage(this.currentPage - 1);
+    }
+  }
+
+   nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.loadPage(this.currentPage + 1);
+    }
+  }
+  goToFirstPage(): void {
+    this.loadPage(1);
+  }
+
+  // Función para ir a la última página
+  goToLastPage(): void {
+    this.loadPage(this.totalPages);
   }
 }

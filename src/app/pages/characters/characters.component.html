@@ -9,37 +9,72 @@
   />
 </mat-form-field>
 <main>
-  <ng-container *ngFor="let character of this.dataSource.data">
+  <ng-container *ngFor="let character of this.paginatedCharacter">
     <div
-      *ngIf="dataSource && dataSource.data"
-      class="flex flex-column card ml-1 p-3"
+      class="card"
       (click)="allInfo(character)"
     >
       <img
         [src]="character.image"
         [alt]="character.name"
-        class="w-full "
       />
-      <div class="w-full flex flex-column text-center">
+      <div class="information">
+        <span id="id"> # {{character.id}}</span>
         <mat-card-title>{{ character.name }}</mat-card-title>
         <span>{{ character.species }}</span>
         <span>{{ character.gender }}</span>
       </div>
     </div>
   </ng-container>
-  <mat-paginator
-    #paginator
-    *ngIf="enablePaginator"
-    class="demo-paginator w-11 mt-5"
-    (page)="handlePageEvent($event)"
-    [length]="dataSource.data.length"
-    [pageSize]="pageSize"
-    [disabled]="disabled"
-    [showFirstLastButtons]="showFirstLastButtons"
-    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-    [hidePageSize]="hidePageSize"
-    [pageIndex]="pageIndex"
-    aria-label="Select page"
-  >
-  </mat-paginator>
 </main>
+<div class="pagination">
+  <button (click)="goToFirstPage()" [disabled]="currentPage === 1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+    >
+      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+    </svg>
+  </button>
+  <button (click)="previousPage()" [disabled]="currentPage === 1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+
+    >
+      <path
+        d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+      />
+    </svg>
+  </button>
+  <span> {{ currentPage }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+    >
+      <path
+        d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+      />
+    </svg>
+  </button>
+  <button (click)="goToLastPage()" [disabled]="currentPage === totalPages">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+    >
+      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+    </svg>
+  </button>
+</div>
+<ng-template #noData>
+  <p>No Pokémon disponibles.</p>
+</ng-template>
