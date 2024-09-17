@@ -14,22 +14,8 @@ import { DetailCharacterComponent } from 'src/app/shared/components';
         alt="title RickAndMorty"
         class="title"
       />
-      <img
-      [src]="rick"
-      alt="Rick Sanchez"
-      [matTooltip]="this.characterRick.name"
-      matTooltipPosition="below"
-      class="character-principal"
-      (click)="allInfo(characterRick)"
-      />
-      <img
-      [src]="morty"
-      alt="Morty Smith"
-      [matTooltip]="this.characterMorty.name"
-      matTooltipPosition="above"
-      class="character-principal principal-2"
-      (click)="allInfo(characterMorty)"
-      />
+      <shared-card-character class="character-principal" [character]="characterRick"></shared-card-character>
+      <shared-card-character class="principal-2" [character]="characterMorty"></shared-card-character>
     </div>
   `,
   styleUrls: ['./rick-and-morty.component.css'],

@@ -6,7 +6,7 @@
   border-radius: 1rem;
   font-weight: bold;
   font-size: 110%;
-  color: white;
+  color: rgb(0, 255, 13);
   border: none;
   box-shadow: 0 0 5px 5px rgba(153, 255, 153, 0.6),
     /* Capa de luz m%C3%A1s cercana (verde claro) */
@@ -18,3 +18,12 @@
   ;
 }
 
+
+@media (max-width: 800px) {
+  .search{
+    position: relative;
+    width: 70%;
+    top: 3rem;
+    font-size: 150%;
+  }
+}
