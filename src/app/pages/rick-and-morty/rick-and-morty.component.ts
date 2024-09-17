@@ -15,20 +15,20 @@ import { DetailCharacterComponent } from 'src/app/shared/components';
         class="title"
       />
       <img
-        [src]="rick"
-        alt="Rick Sanchez"
-        [matTooltip]="this.characterRick.name"
-        matTooltipPosition="below"
-        class="character-principal"
-        (click)="allInfo(characterRick)"
+      [src]="rick"
+      alt="Rick Sanchez"
+      [matTooltip]="this.characterRick.name"
+      matTooltipPosition="below"
+      class="character-principal"
+      (click)="allInfo(characterRick)"
       />
       <img
-        [src]="morty"
-        alt="Morty Smith"
-        [matTooltip]="this.characterMorty.name"
-        matTooltipPosition="above"
-        class="character-principal principal-2"
-        (click)="allInfo(characterMorty)"
+      [src]="morty"
+      alt="Morty Smith"
+      [matTooltip]="this.characterMorty.name"
+      matTooltipPosition="above"
+      class="character-principal principal-2"
+      (click)="allInfo(characterMorty)"
       />
     </div>
   `,

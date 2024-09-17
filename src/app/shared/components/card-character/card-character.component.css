@@ -22,9 +22,8 @@
   text-align: right;
 }
 
-img{
+.pict{
   width: 10rem;
-  border-radius: 1rem;
 }
 .information{
   height: 100%;

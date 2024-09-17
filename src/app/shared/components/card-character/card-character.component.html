@@ -1,6 +1,6 @@
 <!-- todo: configurar modal -->
 <div class="card" (click)="allInfo()">
-  <img [src]="character?.image" [alt]="character?.name" />
+  <shared-picture class="pict" [img]="character?.image ?? ''" [alt]="character?.name??''"></shared-picture>
   <div class="information">
     <span id="id"> # {{ character?.id }}</span>
     <mat-card-title>{{ character?.name }}</mat-card-title>

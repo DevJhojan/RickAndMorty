@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PictureComponent } from './components/picture/picture.component';
 import { CardCharacterComponent } from './components/card-character/card-character.component';
 import { SearchComponent } from './components/search/search.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SearchComponent } from './components/search/search.component';
     PictureComponent,
     CardCharacterComponent,
     SearchComponent,
+    PaginatorComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],
   exports: [
@@ -34,6 +36,7 @@ import { SearchComponent } from './components/search/search.component';
     PictureComponent,
     CardCharacterComponent,
     SearchComponent,
+    PaginatorComponent
   ],
 })
 export class SharedModule {}

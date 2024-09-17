@@ -14,7 +14,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  @Input() searchText: string = '';
+  searchText: string = '';
   @Output() filtered = new EventEmitter<string>()
   filter():void{
     this.filtered.emit(this.searchText)
