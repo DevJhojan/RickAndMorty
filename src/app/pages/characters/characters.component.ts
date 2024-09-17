@@ -18,16 +18,6 @@ export class CharactersComponent implements OnInit {
   public filteredCharacters: IResult[] = [];
   public paginatedCharacter: IResult[] = [];
   searchTerm: String = '';
-  length = 0;
-  pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
-  hidePageSize = true;
-  showPageSizeOptions = false;
-  showFirstLastButtons = true;
-  disabled = false;
-  pageEvent: PageEvent;
-  dataSource: any;
-
 
   public searchText: string = '';
   public currentPage: number = 1; // Página inicial
@@ -37,10 +27,8 @@ export class CharactersComponent implements OnInit {
     private sRAndMService: ServiceRickAndMortyService,
     public dialog: MatDialog
   ) {
-    this.pageEvent = new PageEvent();
     this.allCharacters = [];
     this.addingCharacters = [];
-    this.dataSource = new MatTableDataSource(this.allCharacters);
     this.loadAllCharacters();
   }
   loadAllCharacters() {
@@ -64,56 +52,13 @@ export class CharactersComponent implements OnInit {
   }
   ngOnInit(): void {}
 
-  ngAfterViewInit() {
-    this.paginator ? (this.dataSource.paginator = this.paginator) : '';
-  }
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
-    const startIndex = e.pageIndex * e.pageSize;
-    const endIndex = startIndex + e.pageSize;
-    const dataSlice = this.allCharacters.slice(startIndex, endIndex);
-    this.dataSource.data = dataSlice;
-  }
 
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput
-        .split(',')
-        .map((str) => +str);
-    }
-  }
-  applyFilter() {
-    if (this.searchTerm == '') {
-      this.allCharacters = [];
-      this.addingCharacters = [];
-      this.loadAllCharacters();
-      return;
-    }
-    this.dataSource = new MatTableDataSource(
-      this.allCharacters.filter((character) =>
-        character.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      )
-    );
-    this.enablePaginator = false;
-  }
-  allInfo(character: IResult): void {
-    const dialogRef = this.dialog.open(DetailCharacterComponent, {
-      width: '90%',
-      data: character,
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
-  }
 
-  filterCharacter(): void {
+  filterCharacter(search?:string): void {
     if (this.searchText) {
-      const searchLower = this.searchText.toLowerCase();
+      const searchLower = search?.toLowerCase();
       this.filteredCharacters = this.allCharacters.filter((character) =>
-        character.name.toLowerCase().includes(searchLower)
+        character.name.toLowerCase().includes(searchLower ?? '')
       );
     } else {
       this.filteredCharacters = [...this.allCharacters];

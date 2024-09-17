@@ -1,35 +1,10 @@
-<mat-form-field class="fixed top-0 mt-1 ml-8 w-8">
-  <mat-label>Filter</mat-label>
-  <input
-    matInput
-    [(ngModel)]="searchTerm"
-    (ngModelChange)="applyFilter()"
-    placeholder="search Character"
-    #input
-  />
-</mat-form-field>
-<!-- todo: configurar buscador -->
-
-<!-- todo: configurar modal -->
+<shared-search [searchText]="searchText" (filtered)="filterCharacter($event)"></shared-search>
 <main>
   <ng-container *ngFor="let character of this.paginatedCharacter">
-    <div
-      class="card"
-      (click)="allInfo(character)"
-    >
-      <img
-        [src]="character.image"
-        [alt]="character.name"
-      />
-      <div class="information">
-        <span id="id"> # {{character.id}}</span>
-        <mat-card-title>{{ character.name }}</mat-card-title>
-        <span>{{ character.species }}</span>
-        <span>{{ character.gender }}</span>
-      </div>
-    </div>
+    <shared-card-character [character]="character" ></shared-card-character>
   </ng-container>
 </main>
+<!-- todo: configurar paginador -->
 <div class="pagination">
   <button (click)="goToFirstPage()" [disabled]="currentPage === 1">
     <svg

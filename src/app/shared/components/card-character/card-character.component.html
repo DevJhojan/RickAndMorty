@@ -1,0 +1,10 @@
+<!-- todo: configurar modal -->
+<div class="card" (click)="allInfo()">
+  <img [src]="character?.image" [alt]="character?.name" />
+  <div class="information">
+    <span id="id"> # {{ character?.id }}</span>
+    <mat-card-title>{{ character?.name }}</mat-card-title>
+    <span>{{ character?.species }}</span>
+    <span>{{ character?.gender }}</span>
+  </div>
+</div>

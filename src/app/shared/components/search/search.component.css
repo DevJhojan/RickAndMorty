@@ -1,0 +1,19 @@
+.search{
+  width: 92%;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: var(--bgCard);
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 110%;
+  color: var(--text);
+  border: none;
+  box-shadow: var(--shadowMid);
+  &:hover{
+    box-shadow: var(--shadowStart);
+  }
+  &:focus{
+    border: none;
+    box-shadow: var(--shadowEnd);
+  }
+}
