@@ -5,7 +5,7 @@ import { IAllResultEpisode, IEpisodes } from '../Models/episodes.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { DialogAllCharactersComponent } from 'src/app/shared/components';
-
+// todo: Mejorar este componente
 @Component({
   selector: 'app-episodes',
   templateUrl: './episodes.component.html',
