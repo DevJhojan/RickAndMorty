@@ -75,6 +75,8 @@ export class EpisodesComponent {
   }
   allCharacter(allUrl: string[]) {
     const dialogRef = this.dialog.open(DialogAllCharactersComponent, {
+      width: '80%',
+      height: '35rem',
       data: allUrl,
     });
 

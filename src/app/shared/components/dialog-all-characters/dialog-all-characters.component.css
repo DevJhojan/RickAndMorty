@@ -1,25 +1,12 @@
-.live{
-  background-color: rgb(255, 230, 0);
-}
-.dead{
-  background-color: rgb(99, 0, 0);
-}
 
-.content{
+main{
+  width: 90%;
+  height: 60%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 2rem;
-  overflow: hidden scroll;
-}
-.card{
-  width: 12.5rem;
-  height: 25rem;
   padding: 1rem;
-  margin-left: 0.5rem;
-  margin-top: 2rem;
   justify-content: space-around;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  overflow: hidden scroll;
+  color: white;
 }
