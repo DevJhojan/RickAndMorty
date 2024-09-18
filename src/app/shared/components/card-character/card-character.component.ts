@@ -14,6 +14,7 @@ export class CardCharacterComponent {
   allInfo(): void {
     const dialogRef = this.dialog.open(DetailCharacterComponent, {
       width: '90%',
+      height: '30rem',
       data: this.character,
     });
     dialogRef.afterClosed().subscribe((result) => {

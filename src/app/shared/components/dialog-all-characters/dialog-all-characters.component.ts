@@ -16,7 +16,7 @@ export class DialogAllCharactersComponent {
   public filteredCharacters: IResult[] = [];
   public paginatedCharacter: IResult[] = [];
   public currentPage: number = 1; // Página inicial
-  public pageSize: number = 2; // Cantidad de Pokémon por página
+  public pageSize: number = 6; // Cantidad de Pokémon por página
   public totalPages: number = 1;
   constructor(
     public dialogRef: MatDialogRef<DialogAllCharactersComponent>,

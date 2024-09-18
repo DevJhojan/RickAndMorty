@@ -1,9 +1,10 @@
 .pagination {
-  width: 95%;
+  width: 90%;
   height: 3rem;
   display: flex;
   flex-direction: row;
   padding: 1rem;
+  margin-left: 1rem;
   justify-content: space-between;
   margin-top: 8px;
   button {

@@ -15,8 +15,9 @@
   ></shared-picture>
   <div class="information">
     <span id="id"> # {{ character?.id }}</span>
-    <mat-card-title>{{ character?.name }}</mat-card-title>
+    <mat-card-title>{{ character?.name | uppercase}}</mat-card-title>
     <span>{{ character?.species }}</span>
     <span>{{ character?.gender }}</span>
+    <span>{{ character?.status?.toString() }}</span>
   </div>
 </div>
