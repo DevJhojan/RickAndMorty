@@ -1,10 +1,10 @@
 
 .card{
-  width: 20rem;
-  height: 10rem;
+  width: 24rem;
+  height: 11rem;
   background-color: rgba(14, 13, 13, 0.5);
   border-radius: 2rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   transition: all 0.5s;
   cursor: pointer;
   display: flex;
@@ -54,13 +54,20 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  margin-top: -1rem;
+}
+.information span{
+  font-weight: bold;
+  font-size: 90%;
+}
+h3{
+  color: white;
   font-weight: bold;
 }
-
 @media (max-width: 800px) {
   .card{
     width: 10rem;
-    height: 20rem;
+    height: 24rem;
     flex-direction: column;
   }
   .alive span{

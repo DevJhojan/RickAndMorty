@@ -15,7 +15,10 @@
   ></shared-picture>
   <div class="information">
     <span id="id"> # {{ character?.id }}</span>
-    <mat-card-title>{{ character?.name | uppercase}}</mat-card-title>
+    <h3>{{ character?.name | uppercase}}</h3>
+    <span>{{ character?.created | date:'dd/MM/yyyy'}}</span>
+    <span>{{ character?.origin?.name }}</span>
+    <span>{{ character?.location?.name }}</span>
     <span>{{ character?.species }}</span>
     <span>{{ character?.gender }}</span>
     <span>{{ character?.status?.toString() }}</span>

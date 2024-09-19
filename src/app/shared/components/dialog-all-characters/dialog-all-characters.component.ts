@@ -21,7 +21,7 @@ export class DialogAllCharactersComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogAllCharactersComponent>,
     private sRAndMservice: ServiceRickAndMortyService,
-    @Inject(MAT_DIALOG_DATA) public data: String[]
+    @Inject(MAT_DIALOG_DATA) public data: String[],
   ) {
     data.forEach((url) => {
       const array  = url.match(/\d/g);

@@ -11,14 +11,16 @@ import { MatDialog } from '@angular/material/dialog';
 export class CardCharacterComponent {
   @Input() character?: IResult;
   constructor(public dialog: MatDialog) {}
+  @Input() sw: number=0;
   allInfo(): void {
-    const dialogRef = this.dialog.open(DetailCharacterComponent, {
-      width: '90%',
-      height: '30rem',
-      data: this.character,
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
+    if(this.sw==1){
+      const dialogRef = this.dialog.open(DetailCharacterComponent, {
+        height: '30rem',
+        data: this.character,
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('The dialog was closed');
+      });
+    } else alert("You are now seeing "+ this.character?.name +"'s description")
   }
 }

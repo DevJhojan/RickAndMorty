@@ -7,7 +7,7 @@ import { ServiceRickAndMortyService } from '../service/service-rick-and-morty.se
     <shared-search (filtered)="filterCharacter($event)"></shared-search>
     <main>
       <ng-container *ngFor="let character of this.paginatedCharacter">
-        <shared-card-character [character]="character"></shared-card-character>
+        <shared-card-character [character]="character" [sw]="1"></shared-card-character>
       </ng-container>
     </main>
     <shared-paginator

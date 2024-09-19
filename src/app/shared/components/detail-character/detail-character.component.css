@@ -1,43 +1,23 @@
 main {
-  width: 100%;
-  height: 25rem;
+  width: 50rem;
+  height: 85%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  border-radius: 2rem;
+  justify-content: space-around;
   position: relative;
+  padding: 2rem;
+  background-image: url(../../../../assets/Img/RickAndMorty2.gif);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 main::-webkit-scrollbar {
   width: 0%;
 }
 
-.info {
-  width: 25rem;
-  height: 12rem;
-  overflow: hidden scroll;
-  text-align: center;
-  padding: 2rem;
-}
-
-.info::-webkit-scrollbar {
-  width: 0%;
-}
-
-.info ul {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  color: white;
-  font-size: 110%;
-  font-weight: bold;
-}
-
 .episodes {
-  width: 15%;
+  width: 10rem;
   height: 15rem;
   margin-left: 1rem;
   padding: 2rem;
@@ -55,16 +35,22 @@ main::-webkit-scrollbar {
   margin-top: 1rem;
 }
 
-.episodes ul li a {
+.episodes ul li button {
+  width: 100%;
   border-radius: 1rem;
   padding: 0.5rem;
   background-color: gray;
   color: white;
 }
+button{
+  cursor: pointer;
+}
 
-h1 {
+h1, h3 {
   text-align: center;
   width: 100%;
+  color: white;
+  font-weight: bold;
 }
 
 
@@ -81,31 +67,30 @@ li {
 }
 
 /*todo configurar responsive */
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   main {
+    width: 100%;
+    height: 35rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-weight: bold;
   }
 
   .episodes {
     width: 15rem;
-    padding: 2rem;
     padding-top: 1rem;
     position: relative;
     text-align: center;
   }
 
-  shared-picture {
-    width: 10rem;
-    height: 10rem;
-    position: relative;
-    top: 0.1rem;
-    left: 1rem;
-  }
-
-  li {
-    margin-left: -25%;
-  }
 }

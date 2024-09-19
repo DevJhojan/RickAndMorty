@@ -14,8 +14,8 @@ import { DetailCharacterComponent } from 'src/app/shared/components';
         alt="title RickAndMorty"
         class="title"
       />
-      <shared-card-character class="character-principal" [character]="characterRick"></shared-card-character>
-      <shared-card-character class="principal-2" [character]="characterMorty"></shared-card-character>
+      <shared-card-character class="character-principal" [character]="characterRick" [sw]="1"></shared-card-character>
+      <shared-card-character class="principal-2" [character]="characterMorty" [sw]="1"></shared-card-character>
     </div>
   `,
   styleUrls: ['./rick-and-morty.component.css'],
