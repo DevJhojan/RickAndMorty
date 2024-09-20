@@ -73,7 +73,6 @@ li {
   list-style: none;
 }
 
-/*todo configurar responsive */
 @media (max-width: 860px) {
   main {
     width: 100%;

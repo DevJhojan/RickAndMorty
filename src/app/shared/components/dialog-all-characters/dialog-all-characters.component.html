@@ -1,13 +1,15 @@
-<!-- todo: configurar scroll -->
-  <shared-search (filtered)="filterCharacter($event)"></shared-search>
-  <main>
-    <ng-container *ngFor="let character of this.paginatedCharacter">
-      <shared-card-character [character]="character" [sw]="1"></shared-card-character>
-    </ng-container>
-  </main>
-  <shared-paginator
-    [currentPage]="this.currentPage"
-    [pageSize]="this.pageSize"
-    [totalPages]="this.totalPages"
-    (loadPageGo)="loadPage($event)"
-  ></shared-paginator>
+<shared-search (filtered)="filterCharacter($event)"></shared-search>
+<main>
+  <ng-container *ngFor="let character of this.paginatedCharacter">
+    <shared-card-character
+      [character]="character"
+      [sw]="1"
+    ></shared-card-character>
+  </ng-container>
+</main>
+<shared-paginator
+  [currentPage]="this.currentPage"
+  [pageSize]="this.pageSize"
+  [totalPages]="this.totalPages"
+  (loadPageGo)="loadPage($event)"
+></shared-paginator>
