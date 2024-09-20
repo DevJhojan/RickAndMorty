@@ -1,7 +1,27 @@
-main{
+main {
   width: 95%;
   margin-left: 1%;
   overflow: hidden scroll;
   scrollbar-width: none;
+}
+
+table {
+  background-color: transparent;
+}
+
+th,
+td {
+  text-align: center;
+  box-shadow: 0 0 5px 5px rgba(153, 255, 153, 0.6),
+    /* Capa de luz m%C3%A1s cercana (verde claro) */
+    0 0 20px 15px rgba(102, 255, 102, 0.5),
+    /* Capa media (verde intermedio) */
+    0 0 40px 25px rgba(51, 204, 51, 0.4),
+    /* Capa exterior (verde m%C3%A1s oscuro) */
+    0 0 60px 35px rgba(0, 153, 0, 0.3);
+  /* Capa m%C3%A1s lejana (verde oscuro) */
+  font-size: 110%;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 

@@ -9,6 +9,9 @@ main{
   justify-content: space-around;
   overflow: hidden scroll;
   color: white;
+  background-image: url(../../../../assets/Img/RickAndMorty.gif);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 main::-webkit-scrollbar{
   width: 0;

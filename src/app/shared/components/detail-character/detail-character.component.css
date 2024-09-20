@@ -7,7 +7,7 @@ main {
   justify-content: space-around;
   position: relative;
   padding: 2rem;
-  background-image: url(../../../../assets/Img/RickAndMorty2.gif);
+  background-image: url(../../../../assets/Img/RickAndMorty.gif);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -39,11 +39,18 @@ main::-webkit-scrollbar {
   width: 100%;
   border-radius: 1rem;
   padding: 0.5rem;
-  background-color: gray;
+  background-color: rgb(0, 255, 0);
   color: white;
+  font-weight: bold;
 }
-button{
+button:hover{
   cursor: pointer;
+}
+button:focus{
+  border: none;
+}
+button::selection{
+  border: none;
 }
 
 h1, h3 {
