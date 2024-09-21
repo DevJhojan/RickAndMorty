@@ -18,7 +18,7 @@ export class ServiceRickAndMortyService {
     return this.httpClient.get<IEpisodes>(`${_hostRickAndMorty}/episode?page=${page}`, )
   }
   getLocations(page: number): Observable<any>{
-    return this.httpClient.get<any>(`https://rickandmortyapi.com/api/location`)
+    return this.httpClient.get<any>(`https://rickandmortyapi.com/api/location/?page=${page}`)
   }
   getSingleEpisode(episode: number): Observable<IAllResultEpisode>{
     return this.httpClient.get<IAllResultEpisode>(`https://rickandmortyapi.com/api/episode/${episode}`)

@@ -1,14 +1,23 @@
+
+<shared-search (filtered)="filterLocation($event)"></shared-search>
 <table>
   <tr>
     <th>Id</th>
-    <th>Name World </th>
+    <th>Name World</th>
     <th>Name Dimension</th>
     <th>Type World</th>
   </tr>
-  <tr *ngFor="let location of locations" >
-    <td>{{location.id}}</td>
-    <td>{{location.name}}</td>
-    <td> {{location.dimension}} </td>
-    <td>{{location.type}}</td>
+  <tr *ngFor="let location of this.paginatedLocation">
+    <td>{{ location.id }}</td>
+    <td>{{ location.name }}</td>
+    <td>{{ location.dimension }}</td>
+    <td>{{ location.type }}</td>
   </tr>
 </table>
+
+<shared-paginator
+  [currentPage]="this.currentPage"
+  [pageSize]="this.pageSize"
+  [totalPages]="this.totalPages"
+  (loadPageGo)="loadPage($event)"
+></shared-paginator>
