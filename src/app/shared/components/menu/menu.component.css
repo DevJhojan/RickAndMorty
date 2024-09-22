@@ -1,0 +1,48 @@
+  button {
+    background-color: rgba(14, 13, 13, 0.5);
+    height: auto;
+    padding: 1rem;
+    font-size: 90%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    color: rgb(112, 255, 17);
+    box-shadow: 0 0 5px 5px rgba(153, 255, 153, 0.6),
+      /* Capa de luz m%C3%A1s cercana (verde claro) */
+      0 0 20px 15px rgba(102, 255, 102, 0.5),
+      /* Capa media (verde intermedio) */
+      0 0 40px 25px rgba(51, 204, 51, 0.4),
+      /* Capa exterior (verde m%C3%A1s oscuro) */
+      0 0 60px 35px rgba(0, 153, 0, 0.3);
+
+    i {
+      color: rgb(112, 255, 17);
+      font-weight: bold;
+      font-size: 150%;
+    }
+
+    &:disabled {
+      border-radius: 1rem;
+      cursor: not-allowed;
+      font-weight: bold;
+      box-shadow: 0 0 2.5px 2.5px rgba(15, 66, 15, 0.6),
+        /* Capa de luz m%C3%A1s cercana (verde claro) */
+        0 0 10px 7.5px rgba(1, 116, 1, 0.5),
+        /* Capa media (verde intermedio) */
+        0 0 20px 12.5px rgba(51, 204, 51, 0.4),
+        /* Capa exterior (verde m%C3%A1s oscuro) */
+        0 0 30px 17.5px rgba(128, 226, 128, 0.3);
+    }
+  }
+
+  div {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+  }

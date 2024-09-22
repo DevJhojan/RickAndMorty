@@ -3,37 +3,39 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-layout',
   template: `
-    <mat-sidenav-container class="h-full">
-      <mat-sidenav #sidenav mode="side" [opened]="showMenu" class="wi-side">
+    <main class="container">
+      <button
+        *ngIf="showMenu == false"
+        mat-icon-button
+        (click)="toggleMenu()"
+        class="absolute top-0"
+      >
+        <i class="bi bi-menu-app-fill"></i>
+      </button>
+      <nav class="menu" [class.show]="showMenu">
         <button
           *ngIf="showMenu == true"
           mat-icon-button
           (click)="toggleMenu()"
-          class="absolute top-0"
+          class="btn-menu"
         >
-          <mat-icon>menu</mat-icon>
+          <i class="bi bi-menu-app-fill"></i>
         </button>
-        <shared-menu (showMenu)="toggleMenu()"></shared-menu>
-      </mat-sidenav>
-      <mat-sidenav-content class="container bg-black-super">
+        <div class="menu-content">
+          <shared-menu (showMenu)="toggleMenu()"></shared-menu>
+        </div>
+      </nav>
+      <div class="content">
         <div class="main-content">
           <router-outlet></router-outlet>
         </div>
-        <button
-          *ngIf="showMenu == false"
-          mat-icon-button
-          (click)="toggleMenu()"
-          class="btn-menu"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+      </div>
+    </main>
   `,
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent {
-  showMenu = false;
+  showMenu = true;
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }

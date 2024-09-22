@@ -1,5 +1,6 @@
 <shared-search (filtered)="filterEpisode($event)"></shared-search>
 <main>
+  <!-- todo: poner la tabla responsiva -->
   <table>
     <th *ngFor="let colum of displayedColumns">{{colum | uppercase }}</th>
     <tr *ngFor="let episode of paginatedEpisode">

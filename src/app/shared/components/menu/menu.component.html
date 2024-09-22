@@ -1,5 +1,9 @@
 <div class="mt-8 p-5">
-  <button *ngFor="let item of items" mat-button class="w-full" (click)="navigate(item.url)">
+  <button *ngFor="let item of items" (click)="navigate(item.url)">
+    <i *ngIf="item.name == 'Rick & Morty'" class="bi bi-fire"></i>
+    <i *ngIf="item.name == 'Characters'" class="bi bi-file-person"></i>
+    <i *ngIf="item.name == 'Episodes'" class="bi bi-film"></i>
+    <i *ngIf="item.name == 'Locations'" class="bi bi-compass"></i>
     {{ item.name }}
   </button>
 </div>
