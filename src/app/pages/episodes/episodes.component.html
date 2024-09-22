@@ -1,57 +1,29 @@
-<mat-form-field class="w-10 mt-1 ml-5 mt-7">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup.enter)="applyFilter($event)" placeholder="Name Episode" #input>
-</mat-form-field>
-<main >
-  <table mat-table [dataSource]="dataSource" class="w-11 p-1">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="create">
-      <th mat-header-cell *matHeaderCellDef> Create </th>
-      <td mat-cell *matCellDef="let element"> {{element.created | date:'dd/MM/yyyy'}} </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="characters">
-      <th mat-header-cell *matHeaderCellDef> View </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-stroked-button color="warn" (click)="allCharacter(element.characters)" >
-          <mat-icon>visibility</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-    <!-- Row shown when there is no matching data. -->
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr>
+<main>
+  <shared-search (filtered)="filterEpisode($event)"></shared-search>
+  <!-- todo: Hacer merge a main -->
+  <table class="“responsive-table”">
+    <thead>
+      <tr>
+        <th *ngFor="let colum of displayedColumns">{{ colum | uppercase }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let episode of paginatedEpisode">
+        <td>{{ episode.id }}</td>
+        <td>{{ episode.name | uppercase }}</td>
+        <td>{{ episode.created | date : "dd/M/yyyy" }}</td>
+        <td>
+          <button (click)="allCharacter(episode.characters)">
+            <i class="bi bi-person-lines-fill"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  <mat-paginator
-    #paginator
-    class="demo-paginator w-full mt-5"
-    (page)="handlePageEvent($event)"
-    [pageSize]="pageSize"
-    [disabled]="disabled"
-    [showFirstLastButtons]="showFirstLastButtons"
-    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-    [hidePageSize]="hidePageSize"
-    [pageIndex]="pageIndex"
-    aria-label="Select page"
-  >
-  </mat-paginator>
 </main>
+<shared-paginator
+  [currentPage]="this.currentPage"
+  [pageSize]="this.pageSize"
+  [totalPages]="this.totalPages"
+  (loadPageGo)="loadPage($event)"
+></shared-paginator>

@@ -5,7 +5,6 @@ import { IAllResultEpisode, IEpisodes } from '../Models/episodes.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { DialogAllCharactersComponent } from 'src/app/shared/components';
-
 @Component({
   selector: 'app-episodes',
   templateUrl: './episodes.component.html',
@@ -15,66 +14,39 @@ export class EpisodesComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   allEpisodes: IAllResultEpisode[] = [];
   addingEpisodes: IAllResultEpisode[] = [];
-  displayedColumns: string[] = ['id', 'name', 'create', 'characters'];
+  filteredEpisode: IAllResultEpisode[] = [];
+  paginatedEpisode: IAllResultEpisode[] = [];
 
-  length = this.allEpisodes.length;
-  pageSize = 6;
-  pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
-  hidePageSize = true;
-  showPageSizeOptions = false;
-  showFirstLastButtons = true;
-  disabled = false;
-  pageEvent: PageEvent;
-  dataSource: any;
+  displayedColumns: string[] = ['id', 'name', 'create', 'Characters of the episode'];
+
+
+  public currentPage: number = 1; // Página inicial
+  public pageSize: number = 8; // Cantidad de Pokémon por página
+  public totalPages: number = 1;
+
   constructor(
     private sRAndMService: ServiceRickAndMortyService,
     public dialog: MatDialog
   ) {
-    this.pageEvent = new PageEvent();
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       this.sRAndMService.getAllEpisodes(i).subscribe((episodes: IEpisodes) => {
-        episodes.results.forEach((episode) => {
-          this.addingEpisodes.push(episode);
+        episodes.results.forEach((element: any) => {
+          this.allEpisodes.push(element);
         });
-        this.allEpisodes = this.addingEpisodes;
-        this.dataSource = new MatTableDataSource(this.allEpisodes);
-        this.updatePaginator();
+        this.allEpisodes = Array.from(
+          new Map(
+            this.allEpisodes.map((episode) => [episode.id, episode])
+          ).values()
+        ).sort((a, b) => a.id - b.id);
+        this.filterEpisode();
       });
     }
   }
-  ngAfterViewInit() {
-    try{
-      this.dataSource.paginator = this.paginator;
-    }catch (e){
-      console.warn(`Error: ${e}`)
-    }
-  }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
-    const startIndex = e.pageIndex * e.pageSize;
-    const endIndex = startIndex + e.pageSize;
-    const dataSlice = this.allEpisodes.slice(startIndex, endIndex);
-    // Asignar los datos correspondientes a la página actual a la fuente de datos
-    this.dataSource.data = dataSlice;
-  }
 
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput
-        .split(',')
-        .map((str) => +str);
-    }
-  }
   allCharacter(allUrl: string[]) {
     const dialogRef = this.dialog.open(DialogAllCharactersComponent, {
+      width: '100%',
+      height: '35rem',
       data: allUrl,
     });
 
@@ -82,13 +54,22 @@ export class EpisodesComponent {
       console.log(result);
     });
   }
-  updatePaginator() {
-    // Actualizar la longitud de la fuente de datos
-    this.length = this.dataSource.data.length;
-    // Actualizar el paginador
-    this.paginator.length = this.length;
-    this.paginator.pageSize = this.pageSize;
-    this.paginator.pageIndex = this.pageIndex;
-    this.handlePageEvent(this.paginator);
+
+  filterEpisode(search?: string): void {
+    if (search) {
+      const searchLower = search?.toLowerCase();
+      this.filteredEpisode = this.allEpisodes.filter((episode) =>
+        episode.name.toLowerCase().includes(searchLower ?? '')
+      );
+    } else this.filteredEpisode = [...this.allEpisodes];
+    this.totalPages = Math.ceil(this.filteredEpisode.length / this.pageSize);
+    this.loadPage(this.currentPage);
+  }
+
+  loadPage(page: number): void {
+    this.currentPage = page;
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedEpisode = this.filteredEpisode.slice(startIndex, endIndex);
   }
 }

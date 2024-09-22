@@ -15,24 +15,23 @@ div {
   border-radius: 4rem;
 }
 .character-principal {
-  margin: 3rem;
-  width: 20%;
-  border-radius: 50%;
+  margin-left: 5rem;
   position: absolute;
+  left: 2rem;
+  top: 3rem;
   transition: all 0.5s;
   cursor: pointer;
 }
-.character-principal:hover {
-  width: 25%;
-}
 .principal-2 {
+  position: absolute;
+  right: 1rem;
   margin: 3rem;
   bottom: 0;
-  right: 0;
 }
 @media (max-width: 800px) {
   .title {
-    top: 50%;
+    position: relative;
+    top: 1rem;
     left: 50%;
     transform: translate(-50%);
   }
@@ -43,5 +42,17 @@ div {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+  }
+  .character-principal {
+    position: relative;
+    top: 1rem;
+    left: 10%;
+  }
+  .principal-2{
+    position: relative;
+    bottom: 1rem;
+    top: 1rem;
+    left: 10%;
+
   }
 }

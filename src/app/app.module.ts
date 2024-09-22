@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
-
+import { NgIconsModule } from '@ng-icons/core';
 @NgModule({
   declarations: [
     AppComponent,

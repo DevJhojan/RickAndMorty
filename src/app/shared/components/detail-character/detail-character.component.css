@@ -1,82 +1,105 @@
-.info {
-  overflow: hidden scroll;
-  scrollbar-width: none;
-  text-align: center;
-  width: 100%;
-}
-.episodes {
-  width: 15rem;
-  height: 35rem;
-  margin-left: 5%;
-  padding: 2rem;
-  padding-top: 22rem;
-  padding-bottom: 30rem;
-  position: absolute;
-  top: 3%;
-  right: 2%;
-}
-
-h1 {
-  text-align: center;
-  width: 100%;
-}
-
 main {
-  width: 100%;
-  height: 70vh;
+  width: 50rem;
+  height: 85%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  border-radius: 2rem;
+  justify-content: space-around;
   position: relative;
-  scrollbar-width: none;
+  padding: 2rem;
+  background-image: url(../../../../assets/Img/RickAndMorty.gif);
 }
-div{
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: fixed;
-  top: 40%;
+
+main::-webkit-scrollbar {
+  width: 0%;
 }
-img {
-  width: 17rem;
-  height: 17rem;
-  border-radius: 50%;
-  position: fixed;
-  top: 35%;
-  left: 15%;
+
+.episodes {
+  width: 15rem;
+  height: 20rem;
+  margin-left: 1rem;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden scroll;
+  border-radius: 1rem;
+  top: 3%;
+  background-color: rgba(0, 0, 0, 0.925);
 }
+
+.episodes::-webkit-scrollbar {
+  width: 0%;
+}
+
+.episodes ul li {
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.episodes ul li button {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.925);
+  color: rgb(112, 255, 17);
+  font-weight: bold;
+}
+button:hover{
+  cursor: pointer;
+}
+button:focus{
+  border: none;
+}
+button::selection{
+  border: none;
+}
+
+h1, h3 {
+  text-align: center;
+  width: 100%;
+  color: rgb(112, 255, 17);
+  font-weight: bold;
+}
+
+
+
+shared-picture {
+  height: 15rem;
+  position: relative;
+  top: 2rem;
+  left: 3rem;
+}
+
 li {
   list-style: none;
 }
 
-@media (max-width: 950px) {
-  .episodes {
-    width: 15rem;
-    padding: 2rem;
-    padding-top: 25rem;
-    position: relative;
-    text-align: center;
-  }
-  div{
+@media (max-width: 860px) {
+  main {
     width: 100%;
-    margin-left: -5%;
-    position: relative;
-    top: -2%;
-  }
-  img {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    position: relative;
-    top: 0.1rem;
-    left: -0.2rem;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+
+    align-items: center;
+    padding: 1rem;
   }
 
-  li{
-    margin-left: -25%;
+  h1 {
+    text-align: center;
+    width: 100%;
+  color: white;
+    font-weight: bold;
   }
+
+  .episodes {
+    position: relative;
+    width: 15rem;
+    height: 30rem;
+    padding-top: 1rem;
+    left: 0%;
+  }
+
+
 }

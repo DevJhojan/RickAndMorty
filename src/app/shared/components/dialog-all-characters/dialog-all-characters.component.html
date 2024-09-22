@@ -1,24 +1,15 @@
-<div mat-dialog-content class="content ">
-  <mat-card
-    *ngFor="let character of characters"
-    [ngStyle]="{'background-color': character.status.toString() === 'Alive' ? 'black' : 'red'}"
-    class="card"
-  >
-    <mat-card-header >
-      <mat-card-title >{{ character.name }}</mat-card-title>
-      <mat-card-subtitle >{{ character.origin.name }}</mat-card-subtitle>
-    </mat-card-header>
-    <img
-      matCardImage
-      [src]="character.image"
-      [alt]="character.name"
-      class="w-full border-circle"
-    />
-    <mat-card-content >
-      {{ character.species }} | {{ character.status }}
-    </mat-card-content>
-    <mat-card-footer class=" bottom-0">
-      {{ character.created | date : "DD/MM/YYYY" }}
-    </mat-card-footer>
-  </mat-card>
-</div>
+<shared-search (filtered)="filterCharacter($event)"></shared-search>
+<main>
+  <ng-container *ngFor="let character of this.paginatedCharacter">
+    <shared-card-character
+      [character]="character"
+      [sw]="1"
+    ></shared-card-character>
+  </ng-container>
+</main>
+<shared-paginator
+  [currentPage]="this.currentPage"
+  [pageSize]="this.pageSize"
+  [totalPages]="this.totalPages"
+  (loadPageGo)="loadPage($event)"
+></shared-paginator>

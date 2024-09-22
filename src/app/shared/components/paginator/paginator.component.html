@@ -1,0 +1,18 @@
+<div class="pagination">
+  <button (click)="goToFirstPage()" [disabled]="currentPage === 1">
+    <i class="bi bi-arrow-bar-left"></i>
+  </button>
+  <button (click)="previousPage()" [disabled]="currentPage === 1">
+    <i class="bi bi-arrow-left"></i>
+  </button>
+  <span> {{ currentPage }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    <i class="bi bi-arrow-right"></i>
+  </button>
+  <button (click)="goToLastPage()" [disabled]="currentPage === totalPages">
+    <i class="bi bi-arrow-bar-right"></i>
+  </button>
+</div>
+<ng-template #noData>
+  <p>No Pokémon disponibles.</p>
+</ng-template>

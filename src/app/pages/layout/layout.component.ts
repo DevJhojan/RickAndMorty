@@ -3,32 +3,24 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-layout',
   template: `
-    <mat-sidenav-container class="h-full">
-      <mat-sidenav #sidenav mode="side" [opened]="showMenu" class="wi-side">
-        <button
-          *ngIf="showMenu == true"
-          mat-icon-button
-          (click)="toggleMenu()"
-          class="absolute top-0"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <shared-menu (showMenu)="toggleMenu()"></shared-menu>
-      </mat-sidenav>
-      <mat-sidenav-content class="container bg-black-super">
-        <div class="ml-4">
+    <main class="container">
+      <button
+        (click)="toggleMenu()"
+        class="btn-menu"
+      >
+        <i class="bi bi-menu-app-fill"></i>
+      </button>
+      <nav class="menu" [class.show]="showMenu">
+        <div class="menu-content">
+          <shared-menu (showMenu)="toggleMenu()"></shared-menu>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="main-content">
           <router-outlet></router-outlet>
         </div>
-        <button
-          *ngIf="showMenu == false"
-          mat-icon-button
-          (click)="toggleMenu()"
-          class="btn-menu"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+      </div>
+    </main>
   `,
   styleUrls: ['./layout.component.css'],
 })
