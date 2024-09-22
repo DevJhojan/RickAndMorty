@@ -5,22 +5,12 @@ import { Component } from '@angular/core';
   template: `
     <main class="container">
       <button
-        *ngIf="showMenu == false"
-        mat-icon-button
         (click)="toggleMenu()"
-        class="absolute top-0"
+        class="btn-menu"
       >
         <i class="bi bi-menu-app-fill"></i>
       </button>
       <nav class="menu" [class.show]="showMenu">
-        <button
-          *ngIf="showMenu == true"
-          mat-icon-button
-          (click)="toggleMenu()"
-          class="btn-menu"
-        >
-          <i class="bi bi-menu-app-fill"></i>
-        </button>
         <div class="menu-content">
           <shared-menu (showMenu)="toggleMenu()"></shared-menu>
         </div>
@@ -35,7 +25,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent {
-  showMenu = true;
+  showMenu = false;
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }

@@ -12,7 +12,7 @@ body {
   overflow: hidden scroll;
   background-image: var(--bgImg);
 }
-body::-webkit-scrollbar{
+*::-webkit-scrollbar{
   width: 0%;
 }
 

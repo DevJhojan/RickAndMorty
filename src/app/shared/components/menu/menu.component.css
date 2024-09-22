@@ -1,9 +1,8 @@
   button {
-    background-color: rgba(14, 13, 13, 0.5);
+    background-color: rgba(14, 13, 13, 0.884);
     height: auto;
     padding: 1rem;
     font-size: 90%;
-    background-color: transparent;
     border: none;
     cursor: pointer;
     font-weight: bold;

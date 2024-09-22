@@ -1,18 +1,24 @@
-<shared-search (filtered)="filterEpisode($event)"></shared-search>
 <main>
+  <shared-search (filtered)="filterEpisode($event)"></shared-search>
   <!-- todo: poner la tabla responsiva -->
-  <table>
-    <th *ngFor="let colum of displayedColumns">{{colum | uppercase }}</th>
-    <tr *ngFor="let episode of paginatedEpisode">
-      <td>{{episode.id}}</td>
-      <td>{{episode.name | uppercase}}</td>
-      <td>{{episode.created | date: 'dd/mm/yyyy' }}</td>
-      <td>
-        <button (click)="allCharacter(episode.characters)">
-          <i class="bi bi-person-lines-fill"></i>
-        </button>
-      </td>
-    </tr>
+  <table class=“responsive-table”>
+    <thead>
+      <tr>
+        <th *ngFor="let colum of displayedColumns">{{colum | uppercase }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let episode of paginatedEpisode">
+        <td>{{episode.id}}</td>
+        <td>{{episode.name | uppercase}}</td>
+        <td>{{episode.created | date: 'dd/M/yyyy' }}</td>
+        <td>
+          <button (click)="allCharacter(episode.characters)">
+            <i class="bi bi-person-lines-fill"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </main>
 <shared-paginator

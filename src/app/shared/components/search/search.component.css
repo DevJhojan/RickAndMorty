@@ -22,7 +22,7 @@
 @media (max-width: 800px) {
   .search{
     position: relative;
-    width: 70%;
+    width: 80%;
     top: 3rem;
     font-size: 150%;
   }
