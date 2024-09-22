@@ -6,12 +6,18 @@
     <th>Name World</th>
     <th>Name Dimension</th>
     <th>Type World</th>
+    <th>Residents</th>
   </tr>
   <tr *ngFor="let location of this.paginatedLocation">
     <td>{{ location.id }}</td>
     <td>{{ location.name }}</td>
     <td>{{ location.dimension }}</td>
     <td>{{ location.type }}</td>
+    <td>
+        <button (click)="allResidents(location.residents)">
+          <i class="bi bi-person-lines-fill"></i>
+        </button>
+    </td>
   </tr>
 </table>
 

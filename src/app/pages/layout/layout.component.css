@@ -18,6 +18,10 @@
   overflow: hidden scroll;
   scrollbar-width: none;
 }
+.main-content{
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
 @media (max-width: 950px){
   .wi-side{
     width: 100%;
@@ -30,4 +34,7 @@
     background-position-x: center;
     background-repeat: no-repeat;
   }
+.main-content{
+  margin: 2.5%;
+}
 }
